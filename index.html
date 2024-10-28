@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Military Diet Meal Planner</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100dvh;
+      }
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      p {
+        text-wrap: pretty;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-wrap: balance;
+      }
+
+      img,
+      video,
+      svg {
+        height: auto;
+        max-width: 100%;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+          transition: none;
+        }
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+          Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: small;
+        display: flex;
+        flex-direction: column;
+      }
+      h1,
+      h2 {
+        text-align: center;
+      }
+      h3,
+      h4 {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: medium;
+        text-align: center;
+      }
+      .main-container {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+      }
+      .days-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 300px;
+        width: 100%;
+      }
+      .day {
+        flex: 1 1 300px;
+        margin: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .meal {
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+      }
+      .snacks {
+        margin-bottom: 20px;
+      }
+
+      @media (width < 600px) {
+        .main-container {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Military Diet Meal Planner</h1>
+    <div class="main-container">
+      <!-- Day 1 -->
+      <div class="days-container">
+        <div class="day">
+          <h3>Day 1</h3>
+
+          <div class="meal">
+            <h4>Breakfast</h4>
+            <label for="day1-breakfast-item1">Select your fruit:</label>
+            <select id="day1-breakfast-item1">
+              <option value="1/2 Grapefruit">1/2 Grapefruit</option>
+              <option value="1/2 tsp baking soda in water">
+                1/2 tsp baking soda in water (Grapefruit Substitute)
+              </option>
+            </select>
+
+            <label for="day1-breakfast-item2">Select your bread:</label>
+            <select id="day1-breakfast-item2">
+              <option value="1 Slice of Toast">1 Slice of Toast</option>
+              <option value="1/8 cup sunflower seeds">1/8 cup sunflower seeds</option>
+              <option value="1/2 cup whole grain cereal">1/2 cup whole grain cereal</option>
+              <option value="1/2 high protein bar">1/2 high protein bar</option>
+              <option value="1/4 cup yogurt with flax seeds">
+                1/4 cup yogurt with 1/2 tsp flax seeds
+              </option>
+              <option value="1 tortilla">1 tortilla</option>
+              <option value="2 rice cakes">2 rice cakes</option>
+            </select>
+
+            <label for="day1-breakfast-item3">Select your spread:</label>
+            <select id="day1-breakfast-item3">
+              <option value="2 tbsp Peanut Butter">2 tbsp Peanut Butter</option>
+              <option value="2 tbsp Almond Butter">2 tbsp Almond Butter</option>
+              <option value="2 tbsp Cashew Butter">2 tbsp Cashew Butter</option>
+              <option value="2 tbsp Hummus">2 tbsp Hummus</option>
+              <option value="2 tbsp Bean Dip">2 tbsp Bean Dip</option>
+              <option value="2 tbsp Sunflower Seed Butter">2 tbsp Sunflower Seed Butter</option>
+              <option value="2 tbsp Plain Sunflower Seeds">2 tbsp Plain Sunflower Seeds</option>
+            </select>
+
+            <label for="day1-breakfast-item4">Select your beverage:</label>
+            <select id="day1-breakfast-item4">
+              <option value="1 cup Coffee or Tea (with caffeine)">
+                1 cup Coffee or Tea (with caffeine)
+              </option>
+              <option value="Green Tea">Green Tea (Caffeine Source)</option>
+              <option value="Sugar-free hot chocolate">
+                Sugar-free Hot Chocolate (Minimal Caffeine)
+              </option>
+              <option value="Sugar-free Red Bull">Sugar-free Red Bull (76 mg Caffeine)</option>
+              <option value="Herbal Tea">Herbal Tea (Caffeine-Free)</option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Lunch</h4>
+            <label for="day1-lunch-item1">Select your protein:</label>
+            <select id="day1-lunch-item1">
+              <option value="1/2 Cup of Tuna">1/2 Cup of Tuna</option>
+              <option value="Grilled Tuna">Grilled Tuna (Same Size as Canned)</option>
+              <option value="1/2 cup Cottage Cheese">1/2 Cup Cottage Cheese</option>
+              <option value="1/2 cup Chicken">1/2 Cup Chicken</option>
+              <option value="1/2 cup Tofu">1/2 Cup Tofu</option>
+              <option value="20 Almonds">20 Almonds</option>
+              <option value="1/2 Avocado and 2 tbsp Hummus">
+                1/2 Avocado and 2 tbsp Hummus (Vegan Option)
+              </option>
+            </select>
+
+            <label for="day1-lunch-item2">Select your bread:</label>
+            <select id="day1-lunch-item2">
+              <option value="1 Slice of Toast">1 Slice of Toast</option>
+              <option value="1/8 cup sunflower seeds">1/8 Cup Sunflower Seeds</option>
+              <option value="1/2 cup whole grain cereal">1/2 Cup Whole Grain Cereal</option>
+              <option value="1/2 high protein bar">1/2 High Protein Bar</option>
+              <option value="1/4 cup yogurt with flax seeds">
+                1/4 Cup Yogurt with 1/2 tsp Flax Seeds
+              </option>
+              <option value="1 tortilla">1 Tortilla</option>
+              <option value="2 rice cakes">2 Rice Cakes</option>
+            </select>
+
+            <label for="day1-lunch-item3">Select your beverage:</label>
+            <select id="day1-lunch-item3">
+              <option value="1 cup Coffee or Tea (with caffeine)">
+                1 cup Coffee or Tea (with caffeine)
+              </option>
+              <option value="Green Tea">Green Tea (Caffeine Source)</option>
+              <option value="Sugar-free hot chocolate">
+                Sugar-free Hot Chocolate (Minimal Caffeine)
+              </option>
+              <option value="Sugar-free Red Bull">Sugar-free Red Bull (76 mg Caffeine)</option>
+              <option value="Herbal Tea">Herbal Tea (Caffeine-Free)</option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Dinner</h4>
+            <label for="day1-dinner-item1">Select your meat:</label>
+            <select id="day1-dinner-item1">
+              <option value="3 oz any type of meat">3 oz Any Type of Meat</option>
+              <option value="Lentils">Lentils (Vegetarian Protein)</option>
+              <option value="Beans">Beans (Vegetarian Protein)</option>
+              <option value="Tofu">Tofu (Vegetarian Protein)</option>
+              <option value="Portobello Mushrooms">Portobello Mushrooms (Vegetarian Option)</option>
+            </select>
+
+            <label for="day1-dinner-item2">Select your vegetable:</label>
+            <select id="day1-dinner-item2">
+              <option value="1 cup Green Beans">1 Cup Green Beans</option>
+              <option value="1 cup Lettuce">1 Cup Lettuce</option>
+              <option value="1 cup Spinach">1 Cup Spinach</option>
+              <option value="1 cup Tomatoes">1 Cup Tomatoes</option>
+              <option value="1 cup Any Green Vegetable">1 Cup Any Green Vegetable</option>
+            </select>
+
+            <label for="day1-dinner-item3">Select your fruit (Banana):</label>
+            <select id="day1-dinner-item3">
+              <option value="1/2 Banana">1/2 Banana</option>
+              <option value="2 Kiwis">2 Kiwis</option>
+              <option value="1 Cup Papaya">1 Cup Papaya</option>
+              <option value="2 Apricots">2 Apricots</option>
+              <option value="Plums">Plums (Equivalent Calories)</option>
+              <option value="Grapes">Grapes (Equivalent Calories)</option>
+              <option value="Apple Sauce">Apple Sauce (Equivalent Calories)</option>
+            </select>
+
+            <label for="day1-dinner-item4">Select your fruit (Apple):</label>
+            <select id="day1-dinner-item4">
+              <option value="1 Small Apple">1 Small Apple</option>
+              <option value="Plums">Plums</option>
+              <option value="Peaches">Peaches</option>
+              <option value="Grapes">Grapes</option>
+              <option value="Zucchini">Zucchini</option>
+              <option value="Pears">Pears</option>
+              <option value="Dried Apricots">Dried Apricots</option>
+            </select>
+
+            <label for="day1-dinner-item5">Select your dessert:</label>
+            <select id="day1-dinner-item5">
+              <option value="1 Cup Vanilla Ice Cream">1 Cup Vanilla Ice Cream</option>
+              <option value="1 Cup Fruit-flavored Yogurt">1 Cup Fruit-flavored Yogurt</option>
+              <option value="1 Cup Apple Juice">1 Cup Apple Juice</option>
+              <option value="1 Cup Non-dairy Ice Cream">
+                1 Cup Non-dairy Ice Cream (e.g., Coconut Bliss)
+              </option>
+              <option value="1 Cup Flavored Almond Milk">
+                1 Cup Strawberry/Vanilla/Banana Flavored Almond Milk
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="days-container">
+        <div class="day">
+          <h3>Day 2</h3>
+
+          <div class="meal">
+            <h4>Breakfast</h4>
+            <label for="day2-breakfast-item1">Select your egg substitute:</label>
+            <select id="day2-breakfast-item1">
+              <option value="1 Egg">1 Egg</option>
+              <option value="1 Cup Milk">1 Cup Milk</option>
+              <option value="1 Chicken Wing">1 Chicken Wing</option>
+              <option value="1/4 Cup Seeds or Nuts">1/4 Cup Seeds or Nuts</option>
+              <option value="2 Slices of Bacon">2 Slices of Bacon</option>
+              <option value="1/2 Cup Baked Beans">1/2 Cup Baked Beans (Vegetarian/Vegan)</option>
+            </select>
+
+            <label for="day2-breakfast-item2">Select your bread:</label>
+            <select id="day2-breakfast-item2">
+              <option value="1 Slice of Toast">1 Slice of Toast</option>
+              <option value="1/8 Cup Sunflower Seeds">1/8 Cup Sunflower Seeds</option>
+              <option value="1/2 Cup Whole Grain Cereal">1/2 Cup Whole Grain Cereal</option>
+              <option value="1/2 High Protein Bar">1/2 High Protein Bar</option>
+              <option value="1/4 Cup Yogurt with Flax Seeds">
+                1/4 Cup Yogurt with 1/2 tsp Flax Seeds
+              </option>
+              <option value="1 Tortilla">1 Tortilla</option>
+              <option value="2 Rice Cakes">2 Rice Cakes</option>
+            </select>
+
+            <label for="day2-breakfast-item3">Select your fruit:</label>
+            <select id="day2-breakfast-item3">
+              <option value="1/2 Banana">1/2 Banana</option>
+              <option value="2 Kiwis">2 Kiwis</option>
+              <option value="1 Cup Papaya">1 Cup Papaya</option>
+              <option value="2 Apricots">2 Apricots</option>
+              <option value="Plums">Plums</option>
+              <option value="Grapes">Grapes</option>
+              <option value="Apple Sauce">Apple Sauce</option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Lunch</h4>
+            <label for="day2-lunch-item1">Select your cottage cheese substitute:</label>
+            <select id="day2-lunch-item1">
+              <option value="1 Cup Cottage Cheese">1 Cup Cottage Cheese</option>
+              <option value="1 Cup Plain Greek Yogurt">1 Cup Plain Greek Yogurt</option>
+              <option value="1 Cup Ricotta Cheese">1 Cup Ricotta Cheese</option>
+              <option value="Equivalent Calories in Cheddar Cheese">
+                Equivalent Calories in Cheddar Cheese
+              </option>
+              <option value="Equivalent Calories in Eggs">Equivalent Calories in Eggs</option>
+              <option value="Equivalent Calories in Ham">Equivalent Calories in Ham</option>
+              <option value="Tofu">Tofu (Non-dairy Substitute)</option>
+              <option value="1 Cup Unsweetened Soy/Hemp/Almond Milk and 2 tbsp Hummus">
+                1 Cup Unsweetened Soy/Hemp/Almond Milk and 2 tbsp Hummus (Vegan)
+              </option>
+            </select>
+
+            <label for="day2-lunch-item2">Select your egg substitute:</label>
+            <select id="day2-lunch-item2">
+              <option value="1 Hard Boiled Egg">1 Hard Boiled Egg</option>
+              <option value="1/2 Avocado">1/2 Avocado (Vegan)</option>
+            </select>
+
+            <label for="day2-lunch-item3">Select your crackers substitute:</label>
+            <select id="day2-lunch-item3">
+              <option value="5 Saltine Crackers">5 Saltine Crackers</option>
+              <option value="Equivalent Calories in Rice Cakes">
+                Equivalent Calories in Rice Cakes
+              </option>
+              <option value="Equivalent Calories in Quinoa">Equivalent Calories in Quinoa</option>
+              <option value="Equivalent Calories in Couscous">
+                Equivalent Calories in Couscous
+              </option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Dinner</h4>
+            <label for="day2-dinner-item1">Select your hot dog substitute:</label>
+            <select id="day2-dinner-item1">
+              <option value="2 Hot Dogs">2 Hot Dogs (Without Bun)</option>
+              <option value="Turkey Dogs">Turkey Dogs</option>
+              <option value="Soy Dogs">Soy Dogs (Vegetarian)</option>
+              <option value="Tofu Dogs">Tofu Dogs (Vegetarian)</option>
+              <option value="Bratwurst">Bratwurst</option>
+              <option value="Luncheon Meat">Luncheon Meat</option>
+              <option value="Deli Meat">Deli Meat</option>
+              <option value="Baloney">Baloney</option>
+              <option value="Beans">Beans (Vegetarian)</option>
+              <option value="Lentils">Lentils (Vegetarian)</option>
+              <option value="Portobello Mushrooms">Portobello Mushrooms (Vegetarian)</option>
+              <option value="Equivalent Calories of Tofu (300 Calories)">
+                Equivalent Calories of Tofu (300 Calories)
+              </option>
+            </select>
+
+            <label for="day2-dinner-item2">Select your vegetable (Broccoli):</label>
+            <select id="day2-dinner-item2">
+              <option value="1 Cup Broccoli">1 Cup Broccoli</option>
+              <option value="1 Cup Cauliflower">1 Cup Cauliflower</option>
+              <option value="1 Cup Spinach">1 Cup Spinach</option>
+              <option value="1 Cup Brussels Sprouts">1 Cup Brussels Sprouts</option>
+              <option value="1 Cup Asparagus">1 Cup Asparagus</option>
+            </select>
+
+            <label for="day2-dinner-item3">Select your vegetable (Carrots):</label>
+            <select id="day2-dinner-item3">
+              <option value="1/2 Cup Carrots">1/2 Cup Carrots</option>
+              <option value="Equivalent Calories of Squash">Equivalent Calories of Squash</option>
+              <option value="Equivalent Calories of Parsnip">Equivalent Calories of Parsnip</option>
+              <option value="Equivalent Calories of Beets">Equivalent Calories of Beets</option>
+              <option value="Equivalent Calories of Celery">Equivalent Calories of Celery</option>
+              <option value="Equivalent Calories of Bell Pepper">
+                Equivalent Calories of Bell Pepper
+              </option>
+            </select>
+
+            <label for="day2-dinner-item4">Select your fruit:</label>
+            <select id="day2-dinner-item4">
+              <option value="1/2 Banana">1/2 Banana</option>
+              <option value="2 Kiwis">2 Kiwis</option>
+              <option value="1 Cup Papaya">1 Cup Papaya</option>
+              <option value="2 Apricots">2 Apricots</option>
+              <option value="Plums">Plums</option>
+              <option value="Grapes">Grapes</option>
+              <option value="Apple Sauce">Apple Sauce</option>
+            </select>
+
+            <label for="day2-dinner-item5">Select your dessert:</label>
+            <select id="day2-dinner-item5">
+              <option value="1/2 Cup Vanilla Ice Cream">1/2 Cup Vanilla Ice Cream</option>
+              <option value="1 Cup Fruit-flavored Yogurt">1 Cup Fruit-flavored Yogurt</option>
+              <option value="1 Cup Apple Juice">1 Cup Apple Juice</option>
+              <option value="1 Cup Non-dairy Ice Cream">
+                1 Cup Non-dairy Ice Cream (e.g., Coconut Bliss)
+              </option>
+              <option value="1 Cup Flavored Almond Milk">
+                1 Cup Strawberry/Vanilla/Banana Flavored Almond Milk
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="days-container">
+        <div class="day">
+          <h3>Day 3</h3>
+
+          <div class="meal">
+            <h4>Breakfast</h4>
+            <label for="day3-breakfast-item1">Select your crackers substitute:</label>
+            <select id="day3-breakfast-item1">
+              <option value="5 Saltine Crackers">5 Saltine Crackers</option>
+              <option value="Equivalent Calories in Rice Cakes">
+                Equivalent Calories in Rice Cakes
+              </option>
+              <option value="Equivalent Calories in Quinoa">Equivalent Calories in Quinoa</option>
+              <option value="Equivalent Calories in Couscous">
+                Equivalent Calories in Couscous
+              </option>
+            </select>
+
+            <label for="day3-breakfast-item2">Select your cheese substitute:</label>
+            <select id="day3-breakfast-item2">
+              <option value="1 Slice Cheddar Cheese">1 Slice Cheddar Cheese</option>
+              <option value="1 Egg">1 Egg</option>
+              <option value="1 Cup Cottage Cheese">1 Cup Cottage Cheese</option>
+              <option value="Equivalent Calories in Ham">Equivalent Calories in Ham</option>
+              <option value="Soy Cheese">Soy Cheese (Non-dairy)</option>
+              <option value="Soy Milk">Soy Milk (Non-dairy)</option>
+              <option value="Cabbage">Cabbage (Calcium Source)</option>
+              <option value="Tofu">Tofu (Non-dairy)</option>
+            </select>
+
+            <label for="day3-breakfast-item3">Select your fruit:</label>
+            <select id="day3-breakfast-item3">
+              <option value="1 Small Apple">1 Small Apple</option>
+              <option value="Plums">Plums</option>
+              <option value="Peaches">Peaches</option>
+              <option value="Grapes">Grapes</option>
+              <option value="Zucchini">Zucchini</option>
+              <option value="Pears">Pears</option>
+              <option value="Dried Apricots">Dried Apricots</option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Lunch</h4>
+            <label for="day3-lunch-item1">Select your egg substitute:</label>
+            <select id="day3-lunch-item1">
+              <option value="1 Hard Boiled Egg">1 Hard Boiled Egg</option>
+              <option value="1 Cup Milk">1 Cup Milk</option>
+              <option value="1 Chicken Wing">1 Chicken Wing</option>
+              <option value="1/4 Cup Seeds or Nuts">1/4 Cup Seeds or Nuts</option>
+              <option value="2 Slices of Bacon">2 Slices of Bacon</option>
+              <option value="1/2 Avocado">1/2 Avocado (Vegan)</option>
+              <option value="20 Almonds">20 Almonds (Vegan)</option>
+            </select>
+
+            <label for="day3-lunch-item2">Select your bread:</label>
+            <select id="day3-lunch-item2">
+              <option value="1 Slice of Toast">1 Slice of Toast</option>
+              <option value="1/8 Cup Sunflower Seeds">1/8 Cup Sunflower Seeds</option>
+              <option value="1/2 Cup Whole Grain Cereal">1/2 Cup Whole Grain Cereal</option>
+              <option value="1/2 High Protein Bar">1/2 High Protein Bar</option>
+              <option value="1/4 Cup Yogurt with Flax Seeds">
+                1/4 Cup Yogurt with 1/2 tsp Flax Seeds
+              </option>
+              <option value="1 Tortilla">1 Tortilla</option>
+              <option value="2 Rice Cakes">2 Rice Cakes</option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Dinner</h4>
+            <label for="day3-dinner-item1">Select your tuna substitute:</label>
+            <select id="day3-dinner-item1">
+              <option value="1 Cup of Tuna">1 Cup of Tuna</option>
+              <option value="1/2 Cup Canned Chickpeas">
+                1/2 Cup Canned Chickpeas (Vegetarian/Vegan)
+              </option>
+            </select>
+
+            <label for="day3-dinner-item2">Select your fruit:</label>
+            <select id="day3-dinner-item2">
+              <option value="1/2 Banana">1/2 Banana</option>
+              <option value="2 Kiwis">2 Kiwis</option>
+              <option value="1 Cup Papaya">1 Cup Papaya</option>
+              <option value="2 Apricots">2 Apricots</option>
+              <option value="Plums">Plums</option>
+              <option value="Grapes">Grapes</option>
+              <option value="Apple Sauce">Apple Sauce</option>
+            </select>
+
+            <label for="day3-dinner-item3">Select your dessert:</label>
+            <select id="day3-dinner-item3">
+              <option value="1 Cup Vanilla Ice Cream">1 Cup Vanilla Ice Cream</option>
+              <option value="1 Cup Fruit-flavored Yogurt">1 Cup Fruit-flavored Yogurt</option>
+              <option value="1 Cup Apple Juice">1 Cup Apple Juice</option>
+              <option value="1 Cup Non-dairy Ice Cream">
+                1 Cup Non-dairy Ice Cream (e.g., Coconut Bliss)
+              </option>
+              <option value="1 Cup Flavored Almond Milk">
+                1 Cup Strawberry/Vanilla/Banana Flavored Almond Milk
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="days-container">
+        <div class="day">
+          <h3>Day 4</h3>
+
+          <div class="meal">
+            <h4>Breakfast</h4>
+            <label for="day4-breakfast">Select your breakfast:</label>
+            <select id="day4-breakfast">
+              <option value="Yogurt Parfait">
+                Yogurt Parfait (1 cup plain yogurt, 1 cup mixed berries, 1/4 cup granola, 1 tbsp
+                sliced almonds)
+              </option>
+              <option value="Cheerful Morning">
+                Cheerful Morning (1 cup milk, 1 sliced banana, 1 cup cheerios, 1 orange)
+              </option>
+              <option value="Egg on Toast">
+                Egg on Toast (1 egg scrambled in 1 tsp butter on whole grain toast with tomato and
+                1/4 avocado)
+              </option>
+              <option value="Bagel and Lox">
+                Bagel and Lox (1/2 whole-wheat bagel, 1 tbsp cream cheese, 1 oz smoked salmon,
+                tomato, cucumber, red onion)
+              </option>
+              <option value="Cinnamon Oatmeal">
+                Cinnamon Oatmeal (1/3 cup rolled oats, 2/3 cup milk, 1/2 cup chopped apple, 2 tbsp
+                chopped walnuts, cinnamon)
+              </option>
+              <option value="Walnut Waffles and Berries">
+                Walnut Waffles and Berries (2 whole grain waffles, 1/4 cup strawberries, 1/4 cup
+                blueberries, 7 walnuts)
+              </option>
+              <option value="Florentine Egg and English Muffin">
+                Florentine Egg and English Muffin (2 eggs scrambled with 1 cup spinach on whole
+                wheat English muffin)
+              </option>
+              <option value="Pear and Almond-Butter Toast">
+                Pear and Almond-Butter Toast (1 slice whole wheat toast, 1 tbsp almond butter, 1
+                sliced pear)
+              </option>
+              <option value="Tomato-Basil Ricotta Toast">
+                Tomato-Basil Ricotta Toast (1 slice whole wheat toast, 1/3 cup ricotta cheese, 4
+                tomato slices, basil leaves)
+              </option>
+              <option value="Banana & Honey Smoothie">
+                Banana & Honey Smoothie (Blend 1 cup soy milk, 1 banana, 1 tbsp honey, 2 tbsp
+                oatmeal, 1 tbsp flax seeds)
+              </option>
+              <option value="Cheesy Omelette">
+                Cheesy Omelette (2 egg omelette with cheddar cheese)
+              </option>
+              <option value="Protein Power">
+                Protein Power (2 lean sausages, 1 soft boiled egg, 1 kiwi fruit)
+              </option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Lunch</h4>
+            <label for="day4-lunch">Select your lunch:</label>
+            <select id="day4-lunch">
+              <option value="Tuna Pita">
+                Tuna Pita (1/2 can tuna, 1/4 cup white beans, olive oil, lemon juice in whole-wheat
+                pita with lettuce, 1 cup grapes)
+              </option>
+              <option value="Protein Salad">
+                Protein Salad (2 cups lettuce, 1 cup raw veggies, 1 hard-boiled egg, raisins,
+                almonds, balsamic dressing)
+              </option>
+              <option value="Mediterranean Plate">
+                Mediterranean Plate (Whole-wheat pita, 1 oz feta, tomatoes, olives, 1/4 cup hummus,
+                spinach, olive oil, lemon juice)
+              </option>
+              <option value="Veggie Lunch">
+                Veggie Lunch (1 cup lentil soup, toasted whole wheat bread with pesto, mozzarella,
+                sun-dried tomatoes)
+              </option>
+              <option value="Vegetarian Quesadilla">
+                Vegetarian Quesadilla (Whole-wheat tortilla with 1/3 cup cheddar, 1/4 cup black
+                beans, peppers, mushrooms)
+              </option>
+              <option value="Tuna Walnut Greens">
+                Tuna Walnut Greens (2 cups greens, 3 oz tuna, walnuts, grape tomatoes, balsamic
+                vinaigrette)
+              </option>
+              <option value="Turkey, Pear and Swiss Sandwich">
+                Turkey, Pear and Swiss Sandwich (Whole grain bread, turkey slices, sliced pear,
+                Swiss cheese)
+              </option>
+              <option value="Black-Bean Wrap">
+                Black-Bean Wrap (Whole wheat tortillas with black beans, avocado, romaine lettuce,
+                salsa)
+              </option>
+              <option value="Chicken Salad Pita">
+                Chicken Salad Pita (Diced chicken, balsamic vinegar, scallions, celery, greens in
+                whole wheat pita)
+              </option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Dinner</h4>
+            <label for="day4-dinner">Select your dinner:</label>
+            <select id="day4-dinner">
+              <option value="BBQ Black Bean Burger and Slaw">
+                BBQ Black Bean Burger and Slaw (Black bean burger with BBQ sauce, whole wheat bun,
+                vegetable slaw)
+              </option>
+              <option value="Shrimp and Zucchini Pasta">
+                Shrimp and Zucchini Pasta (Shrimp, garlic, zucchini, basil, olive oil over whole
+                wheat pasta)
+              </option>
+              <option value="Hot Peanut Chicken Wraps">
+                Hot Peanut Chicken Wraps (Chicken, scallions, peanuts, hot sauce, veggie mix in
+                whole wheat tortillas)
+              </option>
+              <option value="Sushi">Sushi (1 cup miso soup, tuna roll, small seaweed salad)</option>
+              <option value="Pepper Cilantro Fajitas">
+                Pepper Cilantro Fajitas (Bell peppers, onions, olive oil, refried beans on whole
+                wheat tortillas with cilantro)
+              </option>
+              <option value="Black Bean and Zucchini Quesadilla">
+                Black Bean and Zucchini Quesadilla (Zucchini, black beans, cumin, cheddar in whole
+                wheat tortillas with salsa)
+              </option>
+              <option value="Tortilla and Cheese Chili">
+                Tortilla and Cheese Chili (Vegetarian chili topped with scallions, tortilla chips,
+                cheddar, side salad)
+              </option>
+              <option value="Florentine Goat Cheese Flatbread">
+                Florentine Goat Cheese Flatbread (Chicken, spinach, garlic on flatbread with goat
+                cheese)
+              </option>
+              <option value="Shrimp Fried Brown Rice">
+                Shrimp Fried Brown Rice (Brown rice, sesame oil, soy sauce, garlic, ginger, shrimp,
+                bok choy)
+              </option>
+              <option value="Cheese and Artichoke Pizza with Side Salad">
+                Cheese and Artichoke Pizza (Flatbread with sauce, artichokes, cheeses, side salad
+                with pine nuts)
+              </option>
+              <option value="Stuffed Chili and Cheese Potato">
+                Stuffed Chili and Cheese Potato (Baked potato with chili, broccoli, cheddar)
+              </option>
+              <option value="Italian Sausage Pasta">
+                Italian Sausage Pasta (Italian sausage, garlic, mushrooms, onions, zucchini,
+                spaghetti sauce over whole wheat pasta)
+              </option>
+              <option value="Cajun Chicken With Rice">
+                Cajun Chicken With Rice (Cajun-seasoned chicken, garlic, onions, bell pepper, tomato
+                paste, brown rice)
+              </option>
+            </select>
+          </div>
+
+          <div class="snacks">
+            <h4>Snacks (Choose Two)</h4>
+            <label for="day4-snack1">Select your first snack:</label>
+            <select id="day4-snack1">
+              <option value="Fruit-and-nut bar">Fruit-and-nut bar</option>
+              <option value="Snap peas with hummus">1 cup snap peas with 1/4 cup hummus</option>
+              <option value="Cantaloupe with cottage cheese">
+                1 cup cantaloupe with 1/2 cup cottage cheese
+              </option>
+              <option value="Carrot sticks with hummus">
+                1 cup carrot sticks with 3 tbsp hummus
+              </option>
+              <option value="Apple and pistachios">1 apple and 22 pistachios</option>
+              <option value="Latte and clementine">12-oz latte and 1 clementine</option>
+              <option value="Tortilla chips with guacamole">
+                10 tortilla chips with 1/4 cup guacamole
+              </option>
+              <option value="Banana with peanut butter">1 banana with 1 tbsp peanut butter</option>
+              <option value="Rye crackers with cream cheese">
+                2 crispy rye crackers with 2 tbsp cream cheese
+              </option>
+              <option value="Yogurt with berries">
+                1 cup plain yogurt with 1 cup mixed berries
+              </option>
+              <option value="Raisins and soy nuts">1/2 oz raisins and 2 tbsp soy nuts</option>
+              <option value="Almonds and apple">14 almonds and an apple</option>
+              <option value="Sorbet">1/2 cup sorbet</option>
+              <option value="Chocolate-covered almonds">1 oz chocolate-covered almonds</option>
+              <option value="Mini bag popcorn">100-calorie mini bag popcorn</option>
+              <option value="String cheese and crackers">
+                1 oz string cheese and 4 whole-grain crackers
+              </option>
+              <option value="Air-popped popcorn">3 cups air-popped popcorn</option>
+            </select>
+
+            <label for="day4-snack2">Select your second snack:</label>
+            <select id="day4-snack2">
+              <option value="Fruit-and-nut bar">Fruit-and-nut bar</option>
+              <option value="Snap peas with hummus">1 cup snap peas with 1/4 cup hummus</option>
+              <option value="Cantaloupe with cottage cheese">
+                1 cup cantaloupe with 1/2 cup cottage cheese
+              </option>
+              <option value="Carrot sticks with hummus">
+                1 cup carrot sticks with 3 tbsp hummus
+              </option>
+              <option value="Apple and pistachios">1 apple and 22 pistachios</option>
+              <option value="Latte and clementine">12-oz latte and 1 clementine</option>
+              <option value="Tortilla chips with guacamole">
+                10 tortilla chips with 1/4 cup guacamole
+              </option>
+              <option value="Banana with peanut butter">1 banana with 1 tbsp peanut butter</option>
+              <option value="Rye crackers with cream cheese">
+                2 crispy rye crackers with 2 tbsp cream cheese
+              </option>
+              <option value="Yogurt with berries">
+                1 cup plain yogurt with 1 cup mixed berries
+              </option>
+              <option value="Raisins and soy nuts">1/2 oz raisins and 2 tbsp soy nuts</option>
+              <option value="Almonds and apple">14 almonds and an apple</option>
+              <option value="Sorbet">1/2 cup sorbet</option>
+              <option value="Chocolate-covered almonds">1 oz chocolate-covered almonds</option>
+              <option value="Mini bag popcorn">100-calorie mini bag popcorn</option>
+              <option value="String cheese and crackers">
+                1 oz string cheese and 4 whole-grain crackers
+              </option>
+              <option value="Air-popped popcorn">3 cups air-popped popcorn</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="days-container">
+        <div class="day">
+          <h3>Day 5</h3>
+
+          <div class="meal">
+            <h4>Breakfast</h4>
+            <label for="day5-breakfast">Select your breakfast:</label>
+            <select id="day5-breakfast">
+              <option value="Yogurt Parfait">
+                Yogurt Parfait (1 cup plain yogurt, 1 cup mixed berries, 1/4 cup granola, 1 tbsp
+                sliced almonds)
+              </option>
+              <option value="Cheerful Morning">
+                Cheerful Morning (1 cup milk, 1 sliced banana, 1 cup cheerios, 1 orange)
+              </option>
+              <option value="Egg on Toast">
+                Egg on Toast (1 egg scrambled in 1 tsp butter on whole grain toast with tomato and
+                1/4 avocado)
+              </option>
+              <option value="Bagel and Lox">
+                Bagel and Lox (1/2 whole-wheat bagel, 1 tbsp cream cheese, 1 oz smoked salmon,
+                tomato, cucumber, red onion)
+              </option>
+              <option value="Cinnamon Oatmeal">
+                Cinnamon Oatmeal (1/3 cup rolled oats, 2/3 cup milk, 1/2 cup chopped apple, 2 tbsp
+                chopped walnuts, cinnamon)
+              </option>
+              <option value="Walnut Waffles and Berries">
+                Walnut Waffles and Berries (2 whole grain waffles, 1/4 cup strawberries, 1/4 cup
+                blueberries, 7 walnuts)
+              </option>
+              <option value="Florentine Egg and English Muffin">
+                Florentine Egg and English Muffin (2 eggs scrambled with 1 cup spinach on whole
+                wheat English muffin)
+              </option>
+              <option value="Pear and Almond-Butter Toast">
+                Pear and Almond-Butter Toast (1 slice whole wheat toast, 1 tbsp almond butter, 1
+                sliced pear)
+              </option>
+              <option value="Tomato-Basil Ricotta Toast">
+                Tomato-Basil Ricotta Toast (1 slice whole wheat toast, 1/3 cup ricotta cheese, 4
+                tomato slices, basil leaves)
+              </option>
+              <option value="Banana & Honey Smoothie">
+                Banana & Honey Smoothie (Blend 1 cup soy milk, 1 banana, 1 tbsp honey, 2 tbsp
+                oatmeal, 1 tbsp flax seeds)
+              </option>
+              <option value="Cheesy Omelette">
+                Cheesy Omelette (2 egg omelette with cheddar cheese)
+              </option>
+              <option value="Protein Power">
+                Protein Power (2 lean sausages, 1 soft boiled egg, 1 kiwi fruit)
+              </option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Lunch</h4>
+            <label for="day5-lunch">Select your lunch:</label>
+            <select id="day5-lunch">
+              <option value="Tuna Pita">
+                Tuna Pita (1/2 can tuna, 1/4 cup white beans, olive oil, lemon juice in whole-wheat
+                pita with lettuce, 1 cup grapes)
+              </option>
+              <option value="Protein Salad">
+                Protein Salad (2 cups lettuce, 1 cup raw veggies, 1 hard-boiled egg, raisins,
+                almonds, balsamic dressing)
+              </option>
+              <option value="Mediterranean Plate">
+                Mediterranean Plate (Whole-wheat pita, 1 oz feta, tomatoes, olives, 1/4 cup hummus,
+                spinach, olive oil, lemon juice)
+              </option>
+              <option value="Veggie Lunch">
+                Veggie Lunch (1 cup lentil soup, toasted whole wheat bread with pesto, mozzarella,
+                sun-dried tomatoes)
+              </option>
+              <option value="Vegetarian Quesadilla">
+                Vegetarian Quesadilla (Whole-wheat tortilla with 1/3 cup cheddar, 1/4 cup black
+                beans, peppers, mushrooms)
+              </option>
+              <option value="Tuna Walnut Greens">
+                Tuna Walnut Greens (2 cups greens, 3 oz tuna, walnuts, grape tomatoes, balsamic
+                vinaigrette)
+              </option>
+              <option value="Turkey, Pear and Swiss Sandwich">
+                Turkey, Pear and Swiss Sandwich (Whole grain bread, turkey slices, sliced pear,
+                Swiss cheese)
+              </option>
+              <option value="Black-Bean Wrap">
+                Black-Bean Wrap (Whole wheat tortillas with black beans, avocado, romaine lettuce,
+                salsa)
+              </option>
+              <option value="Chicken Salad Pita">
+                Chicken Salad Pita (Diced chicken, balsamic vinegar, scallions, celery, greens in
+                whole wheat pita)
+              </option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Dinner</h4>
+            <label for="day5-dinner">Select your dinner:</label>
+            <select id="day5-dinner">
+              <option value="BBQ Black Bean Burger and Slaw">
+                BBQ Black Bean Burger and Slaw (Black bean burger with BBQ sauce, whole wheat bun,
+                vegetable slaw)
+              </option>
+              <option value="Shrimp and Zucchini Pasta">
+                Shrimp and Zucchini Pasta (Shrimp, garlic, zucchini, basil, olive oil over whole
+                wheat pasta)
+              </option>
+              <option value="Hot Peanut Chicken Wraps">
+                Hot Peanut Chicken Wraps (Chicken, scallions, peanuts, hot sauce, veggie mix in
+                whole wheat tortillas)
+              </option>
+              <option value="Sushi">Sushi (1 cup miso soup, tuna roll, small seaweed salad)</option>
+              <option value="Pepper Cilantro Fajitas">
+                Pepper Cilantro Fajitas (Bell peppers, onions, olive oil, refried beans on whole
+                wheat tortillas with cilantro)
+              </option>
+              <option value="Black Bean and Zucchini Quesadilla">
+                Black Bean and Zucchini Quesadilla (Zucchini, black beans, cumin, cheddar in whole
+                wheat tortillas with salsa)
+              </option>
+              <option value="Tortilla and Cheese Chili">
+                Tortilla and Cheese Chili (Vegetarian chili topped with scallions, tortilla chips,
+                cheddar, side salad)
+              </option>
+              <option value="Florentine Goat Cheese Flatbread">
+                Florentine Goat Cheese Flatbread (Chicken, spinach, garlic on flatbread with goat
+                cheese)
+              </option>
+              <option value="Shrimp Fried Brown Rice">
+                Shrimp Fried Brown Rice (Brown rice, sesame oil, soy sauce, garlic, ginger, shrimp,
+                bok choy)
+              </option>
+              <option value="Cheese and Artichoke Pizza with Side Salad">
+                Cheese and Artichoke Pizza (Flatbread with sauce, artichokes, cheeses, side salad
+                with pine nuts)
+              </option>
+              <option value="Stuffed Chili and Cheese Potato">
+                Stuffed Chili and Cheese Potato (Baked potato with chili, broccoli, cheddar)
+              </option>
+              <option value="Italian Sausage Pasta">
+                Italian Sausage Pasta (Italian sausage, garlic, mushrooms, onions, zucchini,
+                spaghetti sauce over whole wheat pasta)
+              </option>
+              <option value="Cajun Chicken With Rice">
+                Cajun Chicken With Rice (Cajun-seasoned chicken, garlic, onions, bell pepper, tomato
+                paste, brown rice)
+              </option>
+            </select>
+          </div>
+
+          <div class="snacks">
+            <h4>Snacks (Choose Two)</h4>
+            <label for="day5-snack1">Select your first snack:</label>
+            <select id="day5-snack1">
+              <option value="Fruit-and-nut bar">Fruit-and-nut bar</option>
+              <option value="Snap peas with hummus">1 cup snap peas with 1/4 cup hummus</option>
+              <option value="Cantaloupe with cottage cheese">
+                1 cup cantaloupe with 1/2 cup cottage cheese
+              </option>
+              <option value="Carrot sticks with hummus">
+                1 cup carrot sticks with 3 tbsp hummus
+              </option>
+              <option value="Apple and pistachios">1 apple and 22 pistachios</option>
+              <option value="Latte and clementine">12-oz latte and 1 clementine</option>
+              <option value="Tortilla chips with guacamole">
+                10 tortilla chips with 1/4 cup guacamole
+              </option>
+              <option value="Banana with peanut butter">1 banana with 1 tbsp peanut butter</option>
+              <option value="Rye crackers with cream cheese">
+                2 crispy rye crackers with 2 tbsp cream cheese
+              </option>
+              <option value="Yogurt with berries">
+                1 cup plain yogurt with 1 cup mixed berries
+              </option>
+              <option value="Raisins and soy nuts">1/2 oz raisins and 2 tbsp soy nuts</option>
+              <option value="Almonds and apple">14 almonds and an apple</option>
+              <option value="Sorbet">1/2 cup sorbet</option>
+              <option value="Chocolate-covered almonds">1 oz chocolate-covered almonds</option>
+              <option value="Mini bag popcorn">100-calorie mini bag popcorn</option>
+              <option value="String cheese and crackers">
+                1 oz string cheese and 4 whole-grain crackers
+              </option>
+              <option value="Air-popped popcorn">3 cups air-popped popcorn</option>
+            </select>
+
+            <label for="day5-snack2">Select your second snack:</label>
+            <select id="day5-snack2">
+              <option value="Fruit-and-nut bar">Fruit-and-nut bar</option>
+              <option value="Snap peas with hummus">1 cup snap peas with 1/4 cup hummus</option>
+              <option value="Cantaloupe with cottage cheese">
+                1 cup cantaloupe with 1/2 cup cottage cheese
+              </option>
+              <option value="Carrot sticks with hummus">
+                1 cup carrot sticks with 3 tbsp hummus
+              </option>
+              <option value="Apple and pistachios">1 apple and 22 pistachios</option>
+              <option value="Latte and clementine">12-oz latte and 1 clementine</option>
+              <option value="Tortilla chips with guacamole">
+                10 tortilla chips with 1/4 cup guacamole
+              </option>
+              <option value="Banana with peanut butter">1 banana with 1 tbsp peanut butter</option>
+              <option value="Rye crackers with cream cheese">
+                2 crispy rye crackers with 2 tbsp cream cheese
+              </option>
+              <option value="Yogurt with berries">
+                1 cup plain yogurt with 1 cup mixed berries
+              </option>
+              <option value="Raisins and soy nuts">1/2 oz raisins and 2 tbsp soy nuts</option>
+              <option value="Almonds and apple">14 almonds and an apple</option>
+              <option value="Sorbet">1/2 cup sorbet</option>
+              <option value="Chocolate-covered almonds">1 oz chocolate-covered almonds</option>
+              <option value="Mini bag popcorn">100-calorie mini bag popcorn</option>
+              <option value="String cheese and crackers">
+                1 oz string cheese and 4 whole-grain crackers
+              </option>
+              <option value="Air-popped popcorn">3 cups air-popped popcorn</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 6 -->
+      <div class="days-container">
+        <div class="day">
+          <h3>Day 6</h3>
+
+          <div class="meal">
+            <h4>Breakfast</h4>
+            <label for="day6-breakfast">Select your breakfast:</label>
+            <select id="day6-breakfast">
+              <option value="Yogurt Parfait">
+                Yogurt Parfait (1 cup plain yogurt, 1 cup mixed berries, 1/4 cup granola, 1 tbsp
+                sliced almonds)
+              </option>
+              <option value="Cheerful Morning">
+                Cheerful Morning (1 cup milk, 1 sliced banana, 1 cup cheerios, 1 orange)
+              </option>
+              <option value="Egg on Toast">
+                Egg on Toast (1 egg scrambled in 1 tsp butter on whole grain toast with tomato and
+                1/4 avocado)
+              </option>
+              <option value="Bagel and Lox">
+                Bagel and Lox (1/2 whole-wheat bagel, 1 tbsp cream cheese, 1 oz smoked salmon,
+                tomato, cucumber, red onion)
+              </option>
+              <option value="Cinnamon Oatmeal">
+                Cinnamon Oatmeal (1/3 cup rolled oats, 2/3 cup milk, 1/2 cup chopped apple, 2 tbsp
+                chopped walnuts, cinnamon)
+              </option>
+              <option value="Walnut Waffles and Berries">
+                Walnut Waffles and Berries (2 whole grain waffles, 1/4 cup strawberries, 1/4 cup
+                blueberries, 7 walnuts)
+              </option>
+              <option value="Florentine Egg and English Muffin">
+                Florentine Egg and English Muffin (2 eggs scrambled with 1 cup spinach on whole
+                wheat English muffin)
+              </option>
+              <option value="Pear and Almond-Butter Toast">
+                Pear and Almond-Butter Toast (1 slice whole wheat toast, 1 tbsp almond butter, 1
+                sliced pear)
+              </option>
+              <option value="Tomato-Basil Ricotta Toast">
+                Tomato-Basil Ricotta Toast (1 slice whole wheat toast, 1/3 cup ricotta cheese, 4
+                tomato slices, basil leaves)
+              </option>
+              <option value="Banana & Honey Smoothie">
+                Banana & Honey Smoothie (Blend 1 cup soy milk, 1 banana, 1 tbsp honey, 2 tbsp
+                oatmeal, 1 tbsp flax seeds)
+              </option>
+              <option value="Cheesy Omelette">
+                Cheesy Omelette (2 egg omelette with cheddar cheese)
+              </option>
+              <option value="Protein Power">
+                Protein Power (2 lean sausages, 1 soft boiled egg, 1 kiwi fruit)
+              </option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Lunch</h4>
+            <label for="day6-lunch">Select your lunch:</label>
+            <select id="day6-lunch">
+              <option value="Tuna Pita">
+                Tuna Pita (1/2 can tuna, 1/4 cup white beans, olive oil, lemon juice in whole-wheat
+                pita with lettuce, 1 cup grapes)
+              </option>
+              <option value="Protein Salad">
+                Protein Salad (2 cups lettuce, 1 cup raw veggies, 1 hard-boiled egg, raisins,
+                almonds, balsamic dressing)
+              </option>
+              <option value="Mediterranean Plate">
+                Mediterranean Plate (Whole-wheat pita, 1 oz feta, tomatoes, olives, 1/4 cup hummus,
+                spinach, olive oil, lemon juice)
+              </option>
+              <option value="Veggie Lunch">
+                Veggie Lunch (1 cup lentil soup, toasted whole wheat bread with pesto, mozzarella,
+                sun-dried tomatoes)
+              </option>
+              <option value="Vegetarian Quesadilla">
+                Vegetarian Quesadilla (Whole-wheat tortilla with 1/3 cup cheddar, 1/4 cup black
+                beans, peppers, mushrooms)
+              </option>
+              <option value="Tuna Walnut Greens">
+                Tuna Walnut Greens (2 cups greens, 3 oz tuna, walnuts, grape tomatoes, balsamic
+                vinaigrette)
+              </option>
+              <option value="Turkey, Pear and Swiss Sandwich">
+                Turkey, Pear and Swiss Sandwich (Whole grain bread, turkey slices, sliced pear,
+                Swiss cheese)
+              </option>
+              <option value="Black-Bean Wrap">
+                Black-Bean Wrap (Whole wheat tortillas with black beans, avocado, romaine lettuce,
+                salsa)
+              </option>
+              <option value="Chicken Salad Pita">
+                Chicken Salad Pita (Diced chicken, balsamic vinegar, scallions, celery, greens in
+                whole wheat pita)
+              </option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Dinner</h4>
+            <label for="day6-dinner">Select your dinner:</label>
+            <select id="day6-dinner">
+              <option value="BBQ Black Bean Burger and Slaw">
+                BBQ Black Bean Burger and Slaw (Black bean burger with BBQ sauce, whole wheat bun,
+                vegetable slaw)
+              </option>
+              <option value="Shrimp and Zucchini Pasta">
+                Shrimp and Zucchini Pasta (Shrimp, garlic, zucchini, basil, olive oil over whole
+                wheat pasta)
+              </option>
+              <option value="Hot Peanut Chicken Wraps">
+                Hot Peanut Chicken Wraps (Chicken, scallions, peanuts, hot sauce, veggie mix in
+                whole wheat tortillas)
+              </option>
+              <option value="Sushi">Sushi (1 cup miso soup, tuna roll, small seaweed salad)</option>
+              <option value="Pepper Cilantro Fajitas">
+                Pepper Cilantro Fajitas (Bell peppers, onions, olive oil, refried beans on whole
+                wheat tortillas with cilantro)
+              </option>
+              <option value="Black Bean and Zucchini Quesadilla">
+                Black Bean and Zucchini Quesadilla (Zucchini, black beans, cumin, cheddar in whole
+                wheat tortillas with salsa)
+              </option>
+              <option value="Tortilla and Cheese Chili">
+                Tortilla and Cheese Chili (Vegetarian chili topped with scallions, tortilla chips,
+                cheddar, side salad)
+              </option>
+              <option value="Florentine Goat Cheese Flatbread">
+                Florentine Goat Cheese Flatbread (Chicken, spinach, garlic on flatbread with goat
+                cheese)
+              </option>
+              <option value="Shrimp Fried Brown Rice">
+                Shrimp Fried Brown Rice (Brown rice, sesame oil, soy sauce, garlic, ginger, shrimp,
+                bok choy)
+              </option>
+              <option value="Cheese and Artichoke Pizza with Side Salad">
+                Cheese and Artichoke Pizza (Flatbread with sauce, artichokes, cheeses, side salad
+                with pine nuts)
+              </option>
+              <option value="Stuffed Chili and Cheese Potato">
+                Stuffed Chili and Cheese Potato (Baked potato with chili, broccoli, cheddar)
+              </option>
+              <option value="Italian Sausage Pasta">
+                Italian Sausage Pasta (Italian sausage, garlic, mushrooms, onions, zucchini,
+                spaghetti sauce over whole wheat pasta)
+              </option>
+              <option value="Cajun Chicken With Rice">
+                Cajun Chicken With Rice (Cajun-seasoned chicken, garlic, onions, bell pepper, tomato
+                paste, brown rice)
+              </option>
+            </select>
+          </div>
+
+          <div class="snacks">
+            <h4>Snacks (Choose Two)</h4>
+            <label for="day6-snack1">Select your first snack:</label>
+            <select id="day6-snack1">
+              <option value="Fruit-and-nut bar">Fruit-and-nut bar</option>
+              <option value="Snap peas with hummus">1 cup snap peas with 1/4 cup hummus</option>
+              <option value="Cantaloupe with cottage cheese">
+                1 cup cantaloupe with 1/2 cup cottage cheese
+              </option>
+              <option value="Carrot sticks with hummus">
+                1 cup carrot sticks with 3 tbsp hummus
+              </option>
+              <option value="Apple and pistachios">1 apple and 22 pistachios</option>
+              <option value="Latte and clementine">12-oz latte and 1 clementine</option>
+              <option value="Tortilla chips with guacamole">
+                10 tortilla chips with 1/4 cup guacamole
+              </option>
+              <option value="Banana with peanut butter">1 banana with 1 tbsp peanut butter</option>
+              <option value="Rye crackers with cream cheese">
+                2 crispy rye crackers with 2 tbsp cream cheese
+              </option>
+              <option value="Yogurt with berries">
+                1 cup plain yogurt with 1 cup mixed berries
+              </option>
+              <option value="Raisins and soy nuts">1/2 oz raisins and 2 tbsp soy nuts</option>
+              <option value="Almonds and apple">14 almonds and an apple</option>
+              <option value="Sorbet">1/2 cup sorbet</option>
+              <option value="Chocolate-covered almonds">1 oz chocolate-covered almonds</option>
+              <option value="Mini bag popcorn">100-calorie mini bag popcorn</option>
+              <option value="String cheese and crackers">
+                1 oz string cheese and 4 whole-grain crackers
+              </option>
+              <option value="Air-popped popcorn">3 cups air-popped popcorn</option>
+            </select>
+
+            <label for="day6-snack2">Select your second snack:</label>
+            <select id="day6-snack2">
+              <option value="Fruit-and-nut bar">Fruit-and-nut bar</option>
+              <option value="Snap peas with hummus">1 cup snap peas with 1/4 cup hummus</option>
+              <option value="Cantaloupe with cottage cheese">
+                1 cup cantaloupe with 1/2 cup cottage cheese
+              </option>
+              <option value="Carrot sticks with hummus">
+                1 cup carrot sticks with 3 tbsp hummus
+              </option>
+              <option value="Apple and pistachios">1 apple and 22 pistachios</option>
+              <option value="Latte and clementine">12-oz latte and 1 clementine</option>
+              <option value="Tortilla chips with guacamole">
+                10 tortilla chips with 1/4 cup guacamole
+              </option>
+              <option value="Banana with peanut butter">1 banana with 1 tbsp peanut butter</option>
+              <option value="Rye crackers with cream cheese">
+                2 crispy rye crackers with 2 tbsp cream cheese
+              </option>
+              <option value="Yogurt with berries">
+                1 cup plain yogurt with 1 cup mixed berries
+              </option>
+              <option value="Raisins and soy nuts">1/2 oz raisins and 2 tbsp soy nuts</option>
+              <option value="Almonds and apple">14 almonds and an apple</option>
+              <option value="Sorbet">1/2 cup sorbet</option>
+              <option value="Chocolate-covered almonds">1 oz chocolate-covered almonds</option>
+              <option value="Mini bag popcorn">100-calorie mini bag popcorn</option>
+              <option value="String cheese and crackers">
+                1 oz string cheese and 4 whole-grain crackers
+              </option>
+              <option value="Air-popped popcorn">3 cups air-popped popcorn</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 7 -->
+      <div class="days-container">
+        <div class="day">
+          <h3>Day 7</h3>
+
+          <div class="meal">
+            <h4>Breakfast</h4>
+            <label for="day7-breakfast">Select your breakfast:</label>
+            <select id="day7-breakfast">
+              <option value="Yogurt Parfait">
+                Yogurt Parfait (1 cup plain yogurt, 1 cup mixed berries, 1/4 cup granola, 1 tbsp
+                sliced almonds)
+              </option>
+              <option value="Cheerful Morning">
+                Cheerful Morning (1 cup milk, 1 sliced banana, 1 cup cheerios, 1 orange)
+              </option>
+              <option value="Egg on Toast">
+                Egg on Toast (1 egg scrambled in 1 tsp butter on whole grain toast with tomato and
+                1/4 avocado)
+              </option>
+              <option value="Bagel and Lox">
+                Bagel and Lox (1/2 whole-wheat bagel, 1 tbsp cream cheese, 1 oz smoked salmon,
+                tomato, cucumber, red onion)
+              </option>
+              <option value="Cinnamon Oatmeal">
+                Cinnamon Oatmeal (1/3 cup rolled oats, 2/3 cup milk, 1/2 cup chopped apple, 2 tbsp
+                chopped walnuts, cinnamon)
+              </option>
+              <option value="Walnut Waffles and Berries">
+                Walnut Waffles and Berries (2 whole grain waffles, 1/4 cup strawberries, 1/4 cup
+                blueberries, 7 walnuts)
+              </option>
+              <option value="Florentine Egg and English Muffin">
+                Florentine Egg and English Muffin (2 eggs scrambled with 1 cup spinach on whole
+                wheat English muffin)
+              </option>
+              <option value="Pear and Almond-Butter Toast">
+                Pear and Almond-Butter Toast (1 slice whole wheat toast, 1 tbsp almond butter, 1
+                sliced pear)
+              </option>
+              <option value="Tomato-Basil Ricotta Toast">
+                Tomato-Basil Ricotta Toast (1 slice whole wheat toast, 1/3 cup ricotta cheese, 4
+                tomato slices, basil leaves)
+              </option>
+              <option value="Banana & Honey Smoothie">
+                Banana & Honey Smoothie (Blend 1 cup soy milk, 1 banana, 1 tbsp honey, 2 tbsp
+                oatmeal, 1 tbsp flax seeds)
+              </option>
+              <option value="Cheesy Omelette">
+                Cheesy Omelette (2 egg omelette with cheddar cheese)
+              </option>
+              <option value="Protein Power">
+                Protein Power (2 lean sausages, 1 soft boiled egg, 1 kiwi fruit)
+              </option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Lunch</h4>
+            <label for="day7-lunch">Select your lunch:</label>
+            <select id="day7-lunch">
+              <option value="Tuna Pita">
+                Tuna Pita (1/2 can tuna, 1/4 cup white beans, olive oil, lemon juice in whole-wheat
+                pita with lettuce, 1 cup grapes)
+              </option>
+              <option value="Protein Salad">
+                Protein Salad (2 cups lettuce, 1 cup raw veggies, 1 hard-boiled egg, raisins,
+                almonds, balsamic dressing)
+              </option>
+              <option value="Mediterranean Plate">
+                Mediterranean Plate (Whole-wheat pita, 1 oz feta, tomatoes, olives, 1/4 cup hummus,
+                spinach, olive oil, lemon juice)
+              </option>
+              <option value="Veggie Lunch">
+                Veggie Lunch (1 cup lentil soup, toasted whole wheat bread with pesto, mozzarella,
+                sun-dried tomatoes)
+              </option>
+              <option value="Vegetarian Quesadilla">
+                Vegetarian Quesadilla (Whole-wheat tortilla with 1/3 cup cheddar, 1/4 cup black
+                beans, peppers, mushrooms)
+              </option>
+              <option value="Tuna Walnut Greens">
+                Tuna Walnut Greens (2 cups greens, 3 oz tuna, walnuts, grape tomatoes, balsamic
+                vinaigrette)
+              </option>
+              <option value="Turkey, Pear and Swiss Sandwich">
+                Turkey, Pear and Swiss Sandwich (Whole grain bread, turkey slices, sliced pear,
+                Swiss cheese)
+              </option>
+              <option value="Black-Bean Wrap">
+                Black-Bean Wrap (Whole wheat tortillas with black beans, avocado, romaine lettuce,
+                salsa)
+              </option>
+              <option value="Chicken Salad Pita">
+                Chicken Salad Pita (Diced chicken, balsamic vinegar, scallions, celery, greens in
+                whole wheat pita)
+              </option>
+            </select>
+          </div>
+
+          <div class="meal">
+            <h4>Dinner</h4>
+            <label for="day7-dinner">Select your dinner:</label>
+            <select id="day7-dinner">
+              <option value="BBQ Black Bean Burger and Slaw">
+                BBQ Black Bean Burger and Slaw (Black bean burger with BBQ sauce, whole wheat bun,
+                vegetable slaw)
+              </option>
+              <option value="Shrimp and Zucchini Pasta">
+                Shrimp and Zucchini Pasta (Shrimp, garlic, zucchini, basil, olive oil over whole
+                wheat pasta)
+              </option>
+              <option value="Hot Peanut Chicken Wraps">
+                Hot Peanut Chicken Wraps (Chicken, scallions, peanuts, hot sauce, veggie mix in
+                whole wheat tortillas)
+              </option>
+              <option value="Sushi">Sushi (1 cup miso soup, tuna roll, small seaweed salad)</option>
+              <option value="Pepper Cilantro Fajitas">
+                Pepper Cilantro Fajitas (Bell peppers, onions, olive oil, refried beans on whole
+                wheat tortillas with cilantro)
+              </option>
+              <option value="Black Bean and Zucchini Quesadilla">
+                Black Bean and Zucchini Quesadilla (Zucchini, black beans, cumin, cheddar in whole
+                wheat tortillas with salsa)
+              </option>
+              <option value="Tortilla and Cheese Chili">
+                Tortilla and Cheese Chili (Vegetarian chili topped with scallions, tortilla chips,
+                cheddar, side salad)
+              </option>
+              <option value="Florentine Goat Cheese Flatbread">
+                Florentine Goat Cheese Flatbread (Chicken, spinach, garlic on flatbread with goat
+                cheese)
+              </option>
+              <option value="Shrimp Fried Brown Rice">
+                Shrimp Fried Brown Rice (Brown rice, sesame oil, soy sauce, garlic, ginger, shrimp,
+                bok choy)
+              </option>
+              <option value="Cheese and Artichoke Pizza with Side Salad">
+                Cheese and Artichoke Pizza (Flatbread with sauce, artichokes, cheeses, side salad
+                with pine nuts)
+              </option>
+              <option value="Stuffed Chili and Cheese Potato">
+                Stuffed Chili and Cheese Potato (Baked potato with chili, broccoli, cheddar)
+              </option>
+              <option value="Italian Sausage Pasta">
+                Italian Sausage Pasta (Italian sausage, garlic, mushrooms, onions, zucchini,
+                spaghetti sauce over whole wheat pasta)
+              </option>
+              <option value="Cajun Chicken With Rice">
+                Cajun Chicken With Rice (Cajun-seasoned chicken, garlic, onions, bell pepper, tomato
+                paste, brown rice)
+              </option>
+            </select>
+          </div>
+
+          <div class="snacks">
+            <h4>Snacks (Choose Two)</h4>
+            <label for="day7-snack1">Select your first snack:</label>
+            <select id="day7-snack1">
+              <option value="Fruit-and-nut bar">Fruit-and-nut bar</option>
+              <option value="Snap peas with hummus">1 cup snap peas with 1/4 cup hummus</option>
+              <option value="Cantaloupe with cottage cheese">
+                1 cup cantaloupe with 1/2 cup cottage cheese
+              </option>
+              <option value="Carrot sticks with hummus">
+                1 cup carrot sticks with 3 tbsp hummus
+              </option>
+              <option value="Apple and pistachios">1 apple and 22 pistachios</option>
+              <option value="Latte and clementine">12-oz latte and 1 clementine</option>
+              <option value="Tortilla chips with guacamole">
+                10 tortilla chips with 1/4 cup guacamole
+              </option>
+              <option value="Banana with peanut butter">1 banana with 1 tbsp peanut butter</option>
+              <option value="Rye crackers with cream cheese">
+                2 crispy rye crackers with 2 tbsp cream cheese
+              </option>
+              <option value="Yogurt with berries">
+                1 cup plain yogurt with 1 cup mixed berries
+              </option>
+              <option value="Raisins and soy nuts">1/2 oz raisins and 2 tbsp soy nuts</option>
+              <option value="Almonds and apple">14 almonds and an apple</option>
+              <option value="Sorbet">1/2 cup sorbet</option>
+              <option value="Chocolate-covered almonds">1 oz chocolate-covered almonds</option>
+              <option value="Mini bag popcorn">100-calorie mini bag popcorn</option>
+              <option value="String cheese and crackers">
+                1 oz string cheese and 4 whole-grain crackers
+              </option>
+              <option value="Air-popped popcorn">3 cups air-popped popcorn</option>
+            </select>
+
+            <label for="day7-snack2">Select your second snack:</label>
+            <select id="day7-snack2">
+              <option value="Fruit-and-nut bar">Fruit-and-nut bar</option>
+              <option value="Snap peas with hummus">1 cup snap peas with 1/4 cup hummus</option>
+              <option value="Cantaloupe with cottage cheese">
+                1 cup cantaloupe with 1/2 cup cottage cheese
+              </option>
+              <option value="Carrot sticks with hummus">
+                1 cup carrot sticks with 3 tbsp hummus
+              </option>
+              <option value="Apple and pistachios">1 apple and 22 pistachios</option>
+              <option value="Latte and clementine">12-oz latte and 1 clementine</option>
+              <option value="Tortilla chips with guacamole">
+                10 tortilla chips with 1/4 cup guacamole
+              </option>
+              <option value="Banana with peanut butter">1 banana with 1 tbsp peanut butter</option>
+              <option value="Rye crackers with cream cheese">
+                2 crispy rye crackers with 2 tbsp cream cheese
+              </option>
+              <option value="Yogurt with berries">
+                1 cup plain yogurt with 1 cup mixed berries
+              </option>
+              <option value="Raisins and soy nuts">1/2 oz raisins and 2 tbsp soy nuts</option>
+              <option value="Almonds and apple">14 almonds and an apple</option>
+              <option value="Sorbet">1/2 cup sorbet</option>
+              <option value="Chocolate-covered almonds">1 oz chocolate-covered almonds</option>
+              <option value="Mini bag popcorn">100-calorie mini bag popcorn</option>
+              <option value="String cheese and crackers">
+                1 oz string cheese and 4 whole-grain crackers
+              </option>
+              <option value="Air-popped popcorn">3 cups air-popped popcorn</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
