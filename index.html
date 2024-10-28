@@ -108,10 +108,12 @@
         margin-bottom: 20px;
       }
 
-      @media (width < 600px) {
+      @media (max-width: 600px) {
         .main-container {
-          display: flex;
-          flex-direction: column;
+          grid-template-columns: 1fr;
+        }
+        .days-container {
+          max-width: 1000px;
         }
       }
     </style>
